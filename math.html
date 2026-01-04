@@ -68,5 +68,40 @@
             </div>
 
         </div> </main>
+    <div id="myLightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="imgFull">
+</div>
+
+<script>
+    const lightbox = document.getElementById("myLightbox");
+    const fullImg = document.getElementById("imgFull");
+
+    // Function to open the pop-up
+    // We add an onclick listener to all concept-card images later
+    document.querySelectorAll('.concept-card img').forEach(image => {
+        image.onclick = () => {
+            lightbox.style.display = "block";
+            fullImg.src = image.src;
+            fullImg.classList.remove("zoomed"); // Reset zoom on new open
+        }
+    });
+
+    // Close the pop-up
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+
+    // Toggle Zoom on click
+    fullImg.onclick = (e) => {
+        e.stopPropagation(); // Prevents closing the lightbox when clicking the image
+        fullImg.classList.toggle("zoomed");
+    };
+
+    // Close lightbox if user clicks the dark background
+    lightbox.onclick = () => {
+        closeLightbox();
+    };
+</script>
 </body>
 </html>
