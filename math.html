@@ -2,106 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mathematics | EasyConcepts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics | EasyConceptsforSchool</title>
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+
     <nav>
-        <a href="index.html">← Back to Home</a>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <span class="logo-text">EasyConceptsforSchool</span>
+        </div>
     </nav>
 
-    <main>
-        <header>
+    <main class="content-wrapper">
+        <header class="page-header">
             <h1>Mathematics Concept Blog</h1>
-            <p>Visual notes and explanations for fundamental Algebra concepts.</p>
+            <p>Visual handwritten notes for Algebra, Division, and Identities.</p>
         </header>
 
         <div class="concept-grid">
-
             <div class="concept-card">
-                <img src="algebra_basics.jpg" alt="Whiteboard notes on Algebra Basics">
-                <div class="concept-card-content">
+                <img src="algebra_baiscs.jpg" alt="Algebra Basics notes">
+                <div class="card-info">
                     <h3>Algebra Basics</h3>
-                    <p>An introduction to variables, constants, and terms.</p>
+                    <p>Variables, constants, and basic terms.</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="algebra_basics_addition_subtraction.jpg" alt="Notes on adding and subtracting algebraic expressions">
-                <div class="concept-card-content">
+                <img src="algebra_baiscs_addition_subtraction.jpg" alt="Addition and Subtraction notes">
+                <div class="card-info">
                     <h3>Addition & Subtraction</h3>
-                    <p>How to combine like terms in algebraic expressions.</p>
+                    <p>Combining terms and BODMAS rules.</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="algebra_multiplication.jpg" alt="Notes on algebraic multiplication">
-                <div class="concept-card-content">
-                    <h3>Algebraic Multiplication</h3>
-                    <p>Rules for multiplying monomials and polynomials.</p>
+                <img src="algebra_multiplication.jpg" alt="Multiplication notes">
+                <div class="card-info">
+                    <h3>Multiplication</h3>
+                    <p>Multiplying monomials and polynomials.</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="algebra_division.jpg" alt="Notes on algebraic division">
-                <div class="concept-card-content">
-                    <h3>Algebraic Division</h3>
-                    <p>Step-by-step guide to dividing variables and coefficients.</p>
+                <img src="algebra_division.jpg" alt="Division notes">
+                <div class="card-info">
+                    <h3>Division</h3>
+                    <p>Dividing algebraic expressions step-by-step.</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="standard_algebraic_identities.jpg" alt="List of standard algebraic identities">
-                <div class="concept-card-content">
+                <img src="standard_algebraic_identities.jpg" alt="Algebraic Identities">
+                <div class="card-info">
                     <h3>Standard Identities</h3>
-                    <p>Mastering formulas like \( (a+b)^2 \) and \( (a-b)^2 \).</p>
+                    <p>Essential formulas like \( (a+b)^2 \).</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="cross_multiplication_method.png" alt="Handwritten whiteboard notes on cross multiplication">
-                <div class="concept-card-content">
+                <img src="cross_multiplication_method.png" alt="Cross Multiplication notes">
+                <div class="card-info">
                     <h3>Cross Multiplication</h3>
-                    <p>A fast way to solve for unknowns in proportions.</p>
+                    <p>Solving equations using the cross-product.</p>
                 </div>
             </div>
+        </div>
+    </main>
 
-        </div> </main>
-    <div id="myLightbox" class="lightbox">
-    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="imgFull">
-</div>
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-container">
+            <img class="modal-content" id="fullImage">
+        </div>
+    </div>
 
-<script>
-    const lightbox = document.getElementById("myLightbox");
-    const fullImg = document.getElementById("imgFull");
+    <script>
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("fullImage");
+        const closeBtn = document.querySelector(".modal-close");
 
-    // Function to open the pop-up
-    // We add an onclick listener to all concept-card images later
-    document.querySelectorAll('.concept-card img').forEach(image => {
-        image.onclick = () => {
-            lightbox.style.display = "block";
-            fullImg.src = image.src;
-            fullImg.classList.remove("zoomed"); // Reset zoom on new open
+        // Open modal on click
+        document.querySelectorAll('.concept-card img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Close modal on 'X' click
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
         }
-    });
 
-    // Close the pop-up
-    function closeLightbox() {
-        lightbox.style.display = "none";
-    }
+        // Close modal if user clicks outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-    // Toggle Zoom on click
-    fullImg.onclick = (e) => {
-        e.stopPropagation(); // Prevents closing the lightbox when clicking the image
-        fullImg.classList.toggle("zoomed");
-    };
-
-    // Close lightbox if user clicks the dark background
-    lightbox.onclick = () => {
-        closeLightbox();
-    };
-</script>
 </body>
 </html>
