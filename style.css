@@ -1,3 +1,44 @@
+/* The Pop-up Overlay (Background) */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: zoom-out;
+}
+
+/* The Image inside the pop-up */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    transition: transform 0.25s ease; /* Smooth zoom transition */
+    cursor: zoom-in;
+}
+
+/* The Close Button */
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Zoomed class toggled by JavaScript */
+.zoomed {
+    transform: scale(1.5);
+    cursor: zoom-out;
+}
+
 /* Grid container for our concept blogs */
 .concept-grid {
     display: grid;
