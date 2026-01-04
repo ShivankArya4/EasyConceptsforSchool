@@ -19,23 +19,23 @@
     <main class="content-wrapper">
         <header class="page-header">
             <h1>Mathematics Concept Blog</h1>
-            <p>Visual handwritten notes for Algebra, Division, and Identities.</p>
+            <p>Click on any image to view my handwritten notes in full screen.</p>
         </header>
 
         <div class="concept-grid">
             <div class="concept-card">
-                <img src="algebra_basics.jpg" alt="Algebra Basics notes">
+                <img src="algebra_baiscs.jpg" alt="Algebra Basics notes">
                 <div class="card-info">
                     <h3>Algebra Basics</h3>
-                    <p>Variables, constants, and basic terms.</p>
+                    <p>Understanding variables, constants, and basic terms.</p>
                 </div>
             </div>
 
             <div class="concept-card">
-                <img src="algebra_basics_addition_subtraction.jpg" alt="Addition and Subtraction notes">
+                <img src="algebra_baiscs_addition_subtraction.jpg" alt="Addition and Subtraction notes">
                 <div class="card-info">
                     <h3>Addition & Subtraction</h3>
-                    <p>Combining terms and BODMAS rules.</p>
+                    <p>Rules for combining terms and BODMAS application.</p>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                 <img src="algebra_multiplication.jpg" alt="Multiplication notes">
                 <div class="card-info">
                     <h3>Multiplication</h3>
-                    <p>Multiplying monomials and polynomials.</p>
+                    <p>Multiplying monomials, binomials, and polynomials.</p>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                 <img src="standard_algebraic_identities.jpg" alt="Algebraic Identities">
                 <div class="card-info">
                     <h3>Standard Identities</h3>
-                    <p>Essential formulas like \( (a+b)^2 \).</p>
+                    <p>Mastering identities like \( (a+b)^2 \).</p>
                 </div>
             </div>
 
@@ -67,38 +67,39 @@
                 <img src="cross_multiplication_method.png" alt="Cross Multiplication notes">
                 <div class="card-info">
                     <h3>Cross Multiplication</h3>
-                    <p>Solving equations using the cross-product.</p>
+                    <p>Solving equations with the cross-multiplication method.</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <div class="modal-container">
-            <img class="modal-content" id="fullImage">
+    <div id="gfgModal" class="modal">
+        <span class="close-modal">&times;</span>
+        
+        <div class="modal-content-container">
+            <img class="modal-image" id="expandedImg">
         </div>
     </div>
 
     <script>
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("fullImage");
-        const closeBtn = document.querySelector(".modal-close");
+        const modal = document.getElementById("gfgModal");
+        const modalImg = document.getElementById("expandedImg");
+        const closeBtn = document.querySelector(".close-modal");
 
-        // Open modal on click
+        // Open modal when any card image is clicked
         document.querySelectorAll('.concept-card img').forEach(img => {
             img.onclick = function() {
-                modal.style.display = "block";
+                modal.style.display = "flex"; // Uses Flex to center perfectly
                 modalImg.src = this.src;
             }
         });
 
-        // Close modal on 'X' click
+        // Close the modal when the 'X' is clicked
         closeBtn.onclick = function() {
             modal.style.display = "none";
         }
 
-        // Close modal if user clicks outside the image
+        // Close the modal if the user clicks anywhere outside the image
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
