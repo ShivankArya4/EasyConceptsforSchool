@@ -76,16 +76,13 @@ nav {
 /* GEKKSFORGEEKS STYLE MODAL */
 .modal {
     display: none; 
-    position: fixed;
-    z-index: 2000; /* Stays above everything */
+    position: fixed; /* Ensures it stays in place relative to the screen */
+    z-index: 9999;  /* A very high number to put it on the top-most layer */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
-    display: none; /* Controlled by JS */
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background */
 }
 
 .modal-content-container {
