@@ -1,3 +1,40 @@
+/* Grid container for our concept blogs */
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Individual Card Styling */
+.concept-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.concept-card:hover {
+    transform: translateY(-5px);
+}
+
+.concept-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.concept-card-content {
+    padding: 15px;
+}
+
+.concept-card h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
